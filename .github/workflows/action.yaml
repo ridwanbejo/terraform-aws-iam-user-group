@@ -1,0 +1,26 @@
+name: "Terraform-AWS-IAM-User-Group Module"
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - uses: hashicorp/setup-terraform@v1
+        with:
+          terraform_version: 1.6.3
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate
+
+      - name: Terraform Fmt
+        id: fmt
+        run: terraform fmt
+        continue-on-error: true
