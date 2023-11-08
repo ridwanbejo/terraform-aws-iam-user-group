@@ -17,6 +17,128 @@ Currently, you can manage these resources by using this module:
 
 Lorem ipsum sit dolor amet.
 
+Example of terraform.tfvars for example usage:
+
+```
+iam_user_groups = [
+  {
+    name = "developers"
+    path = "/developers/"
+  },
+  {
+    name = "guests"
+    path = "/guests/"
+  },
+]
+
+iam_user_group_policies = [
+  {
+    name  = "guests_policy"
+    group = "guests"
+    policy = {
+      Version = "2012-10-17"
+      Statement = [
+        {
+          Effect : "Allow",
+          Action : [
+            "s3:ListAllMyBuckets"
+          ],
+          Resource : "*"
+        }
+      ]
+    }
+  },
+  {
+    name  = "developers_policy"
+    group = "developers"
+    policy = {
+      Version = "2012-10-17"
+      Statement = [
+        {
+          Effect = "Allow"
+          Action = [
+            "ec2:Describe*",
+          ]
+          Resource = "*"
+        },
+        {
+          Effect : "Allow",
+          Action : [
+            "s3:ListAllMyBuckets"
+          ],
+          Resource : "*"
+        }
+      ]
+    }
+  },
+]
+
+iam_users = [
+  {
+    username = "ridwanbejo",
+    group    = ["developers"],
+    ssh_keys = {
+      encoding   = "SSH",
+      public_key = "ssh-rsa 
+AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 
+ridwanbejo@mydomain.com"
+      status     = "active"
+    }
+  },
+  {
+    username = "amaris",
+    group    = ["developers"],
+    ssh_keys = {
+      encoding   = "SSH",
+      public_key = "ssh-rsa 
+AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK42 
+amaris@mydomain.com"
+      status     = "active"
+    }
+  },
+  {
+    username = "satrio",
+    group    = ["developers"],
+    ssh_keys = {
+      encoding   = "SSH",
+      public_key = "ssh-rsa 
+AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK43 
+satrio@mydomain.com"
+      status     = "active"
+    }
+  },
+  {
+    username = "mega",
+    group    = ["developers"],
+    ssh_keys = {
+      encoding   = "SSH",
+      public_key = "ssh-rsa 
+AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK44 
+mega@mydomain.com"
+      status     = "active"
+    }
+  },
+  {
+    username = "rasuna",
+    group    = ["guests"],
+    ssh_keys = {
+      encoding   = "",
+      public_key = ""
+      status     = ""
+    }
+  },
+  {
+    username = "said",
+    group    = ["guests"],
+    ssh_keys = {
+      encoding   = "",
+      public_key = ""
+      status     = ""
+    }
+  }
+]
+ ```
+
 ## B. How to use this module ?
 
 Lorem ipsum sit dolor amet.
