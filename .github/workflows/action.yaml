@@ -29,9 +29,9 @@ jobs:
         id: tf-validate
         run: terraform validate
 
-      - name: Terraform Format
-        id: tf-fmt
-        run: terraform fmt
+      - name: Terraform Format Check
+        id: tf-fmt-check
+        run: terraform fmt -recursive -check
         continue-on-error: true
 
       - name: Show version
