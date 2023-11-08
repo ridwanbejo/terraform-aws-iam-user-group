@@ -16,6 +16,11 @@ jobs:
         with:
           terraform_version: 1.6.3
 
+      - uses: terraform-linters/setup-tflint@v3
+        name: Setup TFLint
+        with:
+          tflint_version: v0.44.1
+
       - name: Terraform Init
         id: tf-init
         run: terraform init
@@ -28,11 +33,6 @@ jobs:
         id: tf-fmt
         run: terraform fmt
         continue-on-error: true
-
-      - uses: terraform-linters/setup-tflint@v3
-        name: Setup TFLint
-        with:
-          tflint_version: v0.44.1
 
       - name: Show version
         run: tflint --version
