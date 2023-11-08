@@ -16,11 +16,15 @@ jobs:
         with:
           terraform_version: 1.6.3
 
-      - name: Terraform validate
-        id: validate
+      - name: Terraform Init
+        id: tf-init
+        run: terraform init
+
+      - name: Terraform Validate
+        id: tf-validate
         run: terraform validate
 
-      - name: Terraform Fmt
-        id: fmt
+      - name: Terraform Format
+        id: tf-fmt
         run: terraform fmt
         continue-on-error: true
