@@ -56,9 +56,9 @@ variable "group_policies" {
               "ec2:DescribeInstances",
             ]
             Resource = "*"
-            "Condition" : {
-              "Bool" : {
-                "aws:MultiFactorAuthPresent" : ["true"]
+            Condition = {
+              Bool = {
+                "aws:MultiFactorAuthPresent" = ["true"]
               }
             }
           },
@@ -68,9 +68,9 @@ variable "group_policies" {
               "s3:ListAllMyBuckets"
             ],
             Resource : "*"
-            "Condition" : {
-              "Bool" : {
-                "aws:MultiFactorAuthPresent" : ["true"]
+            Condition = {
+              Bool = {
+                "aws:MultiFactorAuthPresent" = ["true"]
               }
             }
           }
