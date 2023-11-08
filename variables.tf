@@ -6,15 +6,19 @@ variable "password_policies" {
     require_uppercase_characters   = bool
     require_symbols                = bool
     allow_users_to_change_password = bool
+    max_password_age               = number
+    password_reuse_prevention      = number
   })
 
   default = {
-    minimum_password_length        = 8
+    minimum_password_length        = 16
     require_lowercase_characters   = true
     require_numbers                = true
     require_uppercase_characters   = true
     require_symbols                = true
     allow_users_to_change_password = true
+    max_password_age               = 90
+    password_reuse_prevention      = 5
   }
 }
 
@@ -49,9 +53,14 @@ variable "group_policies" {
           {
             Effect = "Allow"
             Action = [
-              "ec2:Describe*",
+              "ec2:DescribeInstances",
             ]
             Resource = "*"
+            Condition = {
+              Bool = {
+                "aws:MultiFactorAuthPresent" = ["true"]
+              }
+            }
           },
           {
             Effect : "Allow",
@@ -59,6 +68,11 @@ variable "group_policies" {
               "s3:ListAllMyBuckets"
             ],
             Resource : "*"
+            Condition = {
+              Bool = {
+                "aws:MultiFactorAuthPresent" = ["true"]
+              }
+            }
           }
         ]
       }

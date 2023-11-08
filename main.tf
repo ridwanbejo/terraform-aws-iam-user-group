@@ -5,6 +5,8 @@ resource "aws_iam_account_password_policy" "user_password_strict_rule" {
   require_uppercase_characters   = var.password_policies.require_uppercase_characters
   require_symbols                = var.password_policies.require_symbols
   allow_users_to_change_password = var.password_policies.allow_users_to_change_password
+  max_password_age               = var.password_policies.max_password_age
+  password_reuse_prevention      = var.password_policies.password_reuse_prevention
 }
 
 resource "aws_iam_group" "user_groups" {
