@@ -13,11 +13,20 @@ Currently, you can manage these resources by using this module:
 - IAM User Access Key
 - IAM User Login Profile
 
+Tested in:
+
+- Localstack ✅
+- AWS ❌
+
 ## A. Prerequisites
 
 Lorem ipsum sit dolor amet.
 
-Example of terraform.tfvars for example usage:
+## B. How to use this module ?
+
+Lorem ipsum sit dolor amet.
+
+Example of complete terraform.tfvars for this module:
 
 ```
 iam_user_groups = [
@@ -139,19 +148,7 @@ mega@mydomain.com"
 ]
  ```
 
-## B. How to use this module ?
-
-Lorem ipsum sit dolor amet.
-
-## C. How to test this module on Localstack ?
-
-Lorem ipsum sit dolor amet.
-
-## D. How to report issue ?
-
-Lorem ipsum sit dolor amet.
-
-## E. How I ensure quality of this module ?
+## C. How I ensure quality of this module ?
 
 I am trying to follow these approaches for ensuring quality of the tf-module:
 
@@ -172,3 +169,9 @@ The tools:
 - [tfsec](https://github.com/aquasecurity/tfsec)
 - [Pre-commit](https://pre-commit.com/)
 - Github Action [Setup Terraform pipeline](https://github.com/hashicorp/setup-terraform)
+
+## D. How to contribute ?
+
+If you find any issue, you can raise it here -> [Issue Tracker](https://github.com/ridwanbejo/terraform-aws-iam-user-group/issues)
+
+If you have something that you want to merge to this repo, just raise [Pull Requests](https://github.com/ridwanbejo/terraform-aws-iam-user-group/pulls)
