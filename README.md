@@ -20,13 +20,18 @@ Tested in:
 
 ## A. Prerequisites
 
-Lorem ipsum sit dolor amet.
+Requirements:
 
-## B. How to use this module ?
+- Terraform with version >= 1.4
+- Hashicorp/AWS Provider
+- AWS Secret and Access Key
 
-Lorem ipsum sit dolor amet.
+## B. How to use this module for your Terraform project ?
 
-Example of complete terraform.tfvars for this module:
+- Copy `example` project from this module. You can extend it as per your requirements
+- Configure AWS Secret and Access Key by modifying the `providers.tf`
+  - Ensure that you store the AWS Secret and Access Key in environment variables. Don't put it in the terraform file
+- Create `terraform.tfvars` inside the Project. Then copy this sample terraform.tfvars into the file:
 
 ```
 iam_user_groups = [
@@ -148,7 +153,22 @@ mega@mydomain.com"
 ]
  ```
 
-## C. How I ensure quality of this module ?
+- Adjust the change based on your requirements. The tfvars above is just example. Then, Save it
+- Run these commands:
+
+```
+$ terraform init
+$ terraform plan
+$ terraform apply -auto-approve
+```
+
+- If it succeed, you must see this kind of output on your terminal
+
+```
+lorem ipsum sit dolor amet
+```
+
+## C. Ensuring quality
 
 I am trying to follow these approaches for ensuring quality of the tf-module:
 
@@ -172,6 +192,8 @@ The tools:
 
 ## D. How to contribute ?
 
-If you find any issue, you can raise it here -> [Issue Tracker](https://github.com/ridwanbejo/terraform-aws-iam-user-group/issues)
+If you find any issue, you can raise it here at our [Issue Tracker](https://github.com/ridwanbejo/terraform-aws-iam-user-group/issues)
 
 If you have something that you want to merge to this repo, just raise [Pull Requests](https://github.com/ridwanbejo/terraform-aws-iam-user-group/pulls)
+
+Ensure that you install all the tools from section C for development purpose.
