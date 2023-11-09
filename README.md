@@ -169,6 +169,6 @@ The tools:
 - [terraform fmt](https://developer.hashicorp.com/terraform/cli/commands)
 - [tflint](https://github.com/terraform-lint48ers/tflint)
 - [terraform tests](https://developer.hashicorp.com/terraform/language/tests)
-- [tfsec](https://github.com/aquasecurity/tfsec)
+- [tfsec](https://github.com/aquasecurity/tfsec) (will be added later)
 - [Pre-commit](https://pre-commit.com/)
 - Github Action [Setup Terraform pipeline](https://github.com/hashicorp/setup-terraform)
