@@ -1,5 +1,5 @@
 locals {
-  groups         = var.iam_user_groups
-  group_policies = var.iam_user_group_policies
-  users          = var.iam_users
+  groups   = var.iam_groups
+  policies = var.iam_policies
+  users    = var.iam_users
 }

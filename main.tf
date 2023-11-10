@@ -9,6 +9,13 @@ resource "aws_iam_account_password_policy" "user_password_strict_rule" {
   password_reuse_prevention      = var.password_policies.password_reuse_prevention
 }
 
+resource "aws_iam_policy" "policies" {
+  for_each = { for idx, item in var.policies : item.name => item }
+
+  name   = each.value.name
+  policy = jsonencode(each.value.policy)
+}
+
 resource "aws_iam_group" "user_groups" {
   for_each = { for idx, item in var.groups : item.name => item }
 
@@ -16,14 +23,13 @@ resource "aws_iam_group" "user_groups" {
   path = each.value.path
 }
 
-resource "aws_iam_group_policy" "user_group_policies" {
-  for_each = { for idx, item in var.group_policies : item.name => item }
+resource "aws_iam_group_policy_attachment" "user_group_policies" {
+  for_each = { for idx, item in var.groups : item.name => item }
 
-  name   = each.value.name
-  group  = each.value.group
-  policy = jsonencode(each.value.policy)
+  group      = each.value.name
+  policy_arn = aws_iam_policy.policies[each.value.policy_name].arn
 
-  depends_on = [aws_iam_group.user_groups]
+  depends_on = [aws_iam_group.user_groups, aws_iam_policy.policies]
 }
 
 resource "aws_iam_user" "users" {
@@ -37,8 +43,17 @@ resource "aws_iam_user" "users" {
   depends_on = [aws_iam_group.user_groups]
 }
 
+resource "aws_iam_user_policy_attachment" "user_policies" {
+  for_each = { for idx, item in local.users_with_policies : item.username => item }
+
+  user       = each.value.username
+  policy_arn = aws_iam_policy.policies[each.value.policy_name].arn
+
+  depends_on = [aws_iam_user.users, aws_iam_policy.policies]
+}
+
 resource "aws_iam_user_group_membership" "user_groups" {
-  for_each = { for idx, item in var.users : item.username => item }
+  for_each = { for idx, item in local.users_with_groups : item.username => item }
 
   user   = aws_iam_user.users[each.value.username].name
   groups = each.value.group
