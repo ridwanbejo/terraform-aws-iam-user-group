@@ -219,10 +219,119 @@ $ terraform apply -auto-approve
 - If it succeed, you must see this kind of output on your terminal
 
 ```
-lorem ipsum sit dolor amet
+...
+
+module.iam_user_group.aws_iam_user_ssh_key.user_ssh_keys["mega"]: Creation complete after 0s [id=APKAPGY467FTE8Z5QS71]
+module.iam_user_group.aws_iam_user_group_membership.user_groups["rasuna"]: Creating...
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["satrio"]: Creating...
+module.iam_user_group.aws_iam_user_ssh_key.user_ssh_keys["ridwanbejo"]: Creation complete after 0s [id=APKAJ8MXUJVZH4H2STFF]
+module.iam_user_group.aws_iam_access_key.user_access_keys["ridwanbejo"]: Creation complete after 0s [id=LKIAQAAAAAAALG7PIISD]
+module.iam_user_group.aws_iam_access_key.user_access_keys["said"]: Creation complete after 0s [id=LKIAQAAAAAAANHIZFP36]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["mega"]: Creation complete after 0s [id=mega]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["gatot"]: Creating...
+module.iam_user_group.aws_iam_user_ssh_key.user_ssh_keys["satrio"]: Creation complete after 0s [id=APKAHBF8QHBAHC48FXND]
+module.iam_user_group.aws_iam_access_key.user_access_keys["amaris"]: Creation complete after 0s [id=LKIAQAAAAAAAEC6R6RTU]
+module.iam_user_group.aws_iam_user_group_membership.user_groups["said"]: Creating...
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["amaris"]: Creating...
+module.iam_user_group.aws_iam_user_group_membership.user_groups["amaris"]: Creating...
+module.iam_user_group.aws_iam_access_key.user_access_keys["rasuna"]: Creating...
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["gatot"]: Creation complete after 0s [id=gatot]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["satrio"]: Creation complete after 0s [id=satrio]
+module.iam_user_group.aws_iam_user_group_membership.user_groups["rasuna"]: Creation complete after 0s [id=terraform-20231110014444181600000004]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["ridwanbejo"]: Creating...
+module.iam_user_group.aws_iam_user_group_membership.user_groups["said"]: Creation complete after 0s [id=terraform-20231110014444261500000005]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["amaris"]: Creation complete after 0s [id=amaris]
+module.iam_user_group.aws_iam_user_login_profile.user_login_profiles["ridwanbejo"]: Creation complete after 0s [id=ridwanbejo]
+module.iam_user_group.aws_iam_user_group_membership.user_groups["amaris"]: Creation complete after 0s [id=terraform-20231110014444287900000006]
+module.iam_user_group.aws_iam_access_key.user_access_keys["rasuna"]: Creation complete after 0s [id=LKIAQAAAAAAALR7PF42H]
+
+Apply complete! Resources: 31 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+aws_iam_access_key_secret = <sensitive>
+aws_iam_user_password = <sensitive>
+aws_iam_user_ssh_key_public_key = {
+  "amaris" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK42 amaris@mydomain.com"
+  "mega" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK44 mega@mydomain.com"
+  "ridwanbejo" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK41 ridwanbejo@mydomain.com"
+  "satrio" = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK43 satrio@mydomain.com"
+}
 ```
 
-## C. Ensuring quality
+## C. Understanding tfvars scenarios
+
+There are some scenarios that you could choose by using this module. For example:
+
+1. create user without specifying group and policy
+
+```
+iam_users = [
+  {
+    username    = "gatot",
+    group       = [],
+    policy_name = ""
+    ssh_keys = {
+      encoding   = "",
+      public_key = ""
+      status     = ""
+    }
+  },
+]
+```
+
+2. create user without group but specifying policy. Ensure that you create policy in the first place.
+
+```
+iam_users = [
+  {
+    username    = "subroto",
+    group       = [],
+    policy_name = "vendor_policy"
+    ssh_keys = {
+      encoding   = "",
+      public_key = ""
+      status     = ""
+    }
+  },
+]
+```
+
+3. create user without policy and specifying group with attached policy. Ensure that you create policy in the first place and attacht it to the group
+
+```
+iam_users = [
+  {
+    username    = "rasuna",
+    group       = ['developers'],
+    policy_name = ""
+    ssh_keys = {
+      encoding   = "",
+      public_key = ""
+      status     = ""
+    }
+  },
+]
+```
+
+4. Same with 3rd scenario, but you add ssh_keys for the user
+
+```
+iam_users = [
+  {
+    username    = "satrio",
+    group       = ["developers"],
+    policy_name = ""
+    ssh_keys = {
+      encoding   = "SSH",
+      public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQD3F6tyPEFEzV0LX3X8BsXdMsQz1x2cEikKDEY0aIj41qgxMCP/iteneqXSIFZBp5vizPvaoIR3Um9xK7PGoW8giupGn+EPuxIA4cDM4vzOqOkiMPhz5XK0whEjkVzTo4+S0puvDZuwIsdiW9mxhJc7tgBNL0cYlWSYVkz4G/fslNfRPW5mYAM49f4fhtxPb5ok4Q2Lg9dPKVHO/Bgeu5woMc7RY0p1ej6D4CKFE6lymSDJpW0YHX/wqE9+cfEauh7xZcG0q9t2ta6F6fmX0agvpFyZo8aFbXeUBr7osSCJNgvavWbM/06niWrOvYX2xwWdhXmXSrbX8ZbabVohBK43 satrio@mydomain.com"
+      status     = "active"
+    }
+  },
+]
+```
+
+## D. Ensuring quality
 
 I am trying to follow these approaches for ensuring quality of the tf-module:
 
@@ -244,7 +353,7 @@ The tools:
 - [Pre-commit](https://pre-commit.com/)
 - Github Action [Setup Terraform pipeline](https://github.com/hashicorp/setup-terraform)
 
-## D. How to contribute ?
+## E. How to contribute ?
 
 If you find any issue, you can raise it here at our [Issue Tracker](https://github.com/ridwanbejo/terraform-aws-iam-user-group/issues)
 
