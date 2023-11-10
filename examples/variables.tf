@@ -1,9 +1,9 @@
-variable "iam_user_groups" {
+variable "iam_policies" {
   type    = list(any)
   default = []
 }
 
-variable "iam_user_group_policies" {
+variable "iam_groups" {
   type    = list(any)
   default = []
 }
